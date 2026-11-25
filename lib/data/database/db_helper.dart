@@ -1,15 +1,18 @@
 import 'package:sqflite/sqflite.dart';
-import 'package:sqflite/sqlite_api.dart';
 
 class DbHelper {
   static const _dbName = 'Barang.db';
-  static const tableName = "nama";
+  static const tableName = "barang";
 
   static const _dbVersion = 2;
 
   static const _createTable =
       '''
-    CREATE TABLE $tableName (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL)
+    CREATE TABLE $tableName (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      nama TEXT NOT NULL,
+      stok INTEGER NOT NULL
+    )
   ''';
 
   Database? _db;

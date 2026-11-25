@@ -4,6 +4,8 @@ import 'package:weeksebelas/model/barang.dart';
 abstract class BarangRepo {
   Future<int> insert(Barang barang);
   Future<List<Barang>> getAllBarang();
+  Future<int> update(Barang barang);
+  Future<int> delete(int id);
 }
 
 class BarangRepoImpl implements BarangRepo {
@@ -19,5 +21,15 @@ class BarangRepoImpl implements BarangRepo {
   @override
   Future<int> insert(Barang barang) {
     return dao.insert(barang);
+  }
+
+  @override
+  Future<int> update(Barang barang) {
+    return dao.update(barang);
+  }
+
+  @override
+  Future<int> delete(int id) {
+    return dao.delete(id);
   }
 }
